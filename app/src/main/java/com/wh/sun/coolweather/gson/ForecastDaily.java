@@ -29,6 +29,7 @@ public class ForecastDaily {
 
     public Astro astro;
 
+    @SerializedName("cond")
     public Condition condition;
 
     public class Temperature {

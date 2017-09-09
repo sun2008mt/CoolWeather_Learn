@@ -22,6 +22,7 @@ public class Now {
 
     public String vis;
 
+    @SerializedName("cond")
     public Condition condition;
 
     public Wind wind;

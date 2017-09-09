@@ -19,6 +19,7 @@ public class ForecastHourly {
 
     public String tmp;
 
+    @SerializedName("cond")
     public Condition condition;
 
     public Wind wind;
