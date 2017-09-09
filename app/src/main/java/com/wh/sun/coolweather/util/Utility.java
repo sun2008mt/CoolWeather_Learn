@@ -9,6 +9,9 @@ import com.wh.sun.coolweather.db.Province;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.litepal.crud.DataSupport;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/9/9.
@@ -25,7 +28,7 @@ public class Utility {
                     JSONObject provinceObj = allProvinces.getJSONObject(i);
                     Province province = new Province();
                     province.setProvinceName(provinceObj.getString("name"));
-                    province.setId(provinceObj.getInt("id"));
+                    province.setProvinceCode(provinceObj.getInt("id"));
                     province.save();
                 }
                 return true;
@@ -46,10 +49,11 @@ public class Utility {
                     JSONObject cityObj = allCities.getJSONObject(i);
                     City city = new City();
                     city.setCityName(cityObj.getString("name"));
-                    city.setId(cityObj.getInt("id"));
+                    city.setCityCode(cityObj.getInt("id"));
                     city.setProvinceId(provinceId);
                     city.save();
                 }
+                List<City> all = DataSupport.findAll(City.class);
                 return true;
             } catch (JSONException e) {
                 e.printStackTrace();
